@@ -67,12 +67,14 @@ export function Calculator() {
             value={history || ''}
             readOnly
             className="h-8 w-[220px] !cursor-custom-auto overflow-y-hidden bg-transparent text-right text-2xl text-gray-400 focus:outline-none"
+            title="history"
           />
           <input
             ref={inputRef}
             value={expression || 0}
             readOnly
             className="w-[220px] !cursor-custom-auto bg-transparent text-right text-4xl focus:outline-none"
+            title="expression"
           />
         </div>
       </div>

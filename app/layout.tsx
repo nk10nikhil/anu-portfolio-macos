@@ -7,8 +7,9 @@ import { WalpaperProvider } from './components/walpaper-wraper'
 import { ThemeProvider } from 'next-themes'
 
 export const metadata: Metadata = {
-  title: 'macOS 15 Sequoia',
-  description: 'macOS 15 Sequoia by React, Next.js',
+  title: 'Anupriya Portfolio',
+  description:
+    'Anupriya Portfolio | Full Stack Developer | React | Node.js | JavaScript | TypeScript | AI/ML | Agentic AI | System Design | Full-Stack Developer',
 }
 
 export default function RootLayout({
