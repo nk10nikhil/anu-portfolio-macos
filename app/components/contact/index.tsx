@@ -62,31 +62,32 @@ export function Contact() {
         </Link>
       </div>
       <div className="p-4 text-justify text-lg">
-        <h2 className="text-xl font-medium mb-4">About Me</h2>
+        <h2 className="mb-4 text-xl font-medium">About Me</h2>
         <div className="float-right ml-8">
           <Image
             alt=""
             src={'/assets/images/author2.jpg'}
             width={200}
             height={100}
-            className='rounded'
+            className="rounded"
           />
         </div>
         <p className="mb-4">
-          Hello! I'm Anupriya Saini, a passionate software developer with a
+          Hello! I&apos;m Anupriya Saini, a passionate software developer with a
           strong foundation in computer science and a keen interest in building
-          innovative solutions. I hold a Bachelor's degree in Computer Science
-          and Engineering from Galgotia College of Engineering and Technology, where I honed my skills in
-          programming, data structures, and algorithms.
+          innovative solutions. I hold a Bachelor&apos;s degree in Computer
+          Science and Engineering from Galgotia College of Engineering and
+          Technology, where I honed my skills in programming, data structures,
+          and algorithms.
         </p>
         <p className="mb-4">
-          Over the years, I've gained hands-on experience in various
-          technologies, including JavaScript, React, Node.js, and Python. I'm
-          particularly enthusiastic about web development and enjoy creating
-          user-friendly applications that solve real-world problems. My journey
-          in the tech world has been driven by a constant desire to learn and
-          grow, and I actively participate in coding challenges on platforms
-          like LeetCode to sharpen my problem-solving skills.
+          Over the years, I&apos;ve gained hands-on experience in various
+          technologies, including JavaScript, React, Node.js, and Python.
+          I&apos;m particularly enthusiastic about web development and enjoy
+          creating user-friendly applications that solve real-world problems. My
+          journey in the tech world has been driven by a constant desire to
+          learn and grow, and I actively participate in coding challenges on
+          platforms like LeetCode to sharpen my problem-solving skills.
         </p>
       </div>
     </div>
