@@ -5,15 +5,6 @@ import ml from '@/public/assets/background/monterey-light.jpg'
 import { useGSAP } from '@gsap/react'
 import { gsap } from 'gsap'
 import { Draggable } from 'gsap/Draggable'
-// import { EaselPlugin } from 'gsap/EaselPlugin'
-// import { ExpoScaleEase, RoughEase, SlowMo } from 'gsap/EasePack'
-// import { Flip } from 'gsap/Flip'
-// import { MotionPathPlugin } from 'gsap/MotionPathPlugin'
-// import { Observer } from 'gsap/Observer'
-// import { PixiPlugin } from 'gsap/PixiPlugin'
-// import { ScrollToPlugin } from 'gsap/ScrollToPlugin'
-// import { ScrollTrigger } from 'gsap/ScrollTrigger'
-// import { TextPlugin } from 'gsap/TextPlugin'
 import { MouseEvent, useEffect, useRef, useState } from 'react'
 import { FaApple } from 'react-icons/fa'
 import { Contact } from './components/contact'
@@ -53,6 +44,9 @@ export default function Home() {
   const bodyRef = useRef<HTMLDivElement>(null)
   const loaderRef = useRef<HTMLDivElement>(null)
   const dispatch = useDispatch()
+
+  const isMobile = screenSize ? screenSize.w < 900 || screenSize.h < 600 : false
+
   const handleContextMenu = (
     event: MouseEvent<HTMLDivElement, globalThis.MouseEvent>
   ) => {
@@ -139,103 +133,88 @@ export default function Home() {
           }}
         />
       )}
-      {screen === 'desktop' &&
-        screenSize &&
-        screenSize.w >= 900 &&
-        screenSize.h >= 600 && (
+      {screen === 'desktop' && screenSize && (
+        <div
+          ref={bodyRef}
+          onContextMenu={handleContextMenu}
+          className={`${isMobile ? 'h-screen overflow-auto' : 'h-[calc(100vh-28px)]'}`}
+        >
           <div
-            ref={bodyRef}
-            onContextMenu={handleContextMenu}
-            className="h-[calc(100vh-28px)]"
+            className={`flex flex-wrap ${desktop.view === 'vertical' ? 'h-full w-fit flex-col pb-10' : 'h-fit w-full'} ${isMobile ? 'p-4' : ''}`}
           >
-            <div
-              className={`flex flex-wrap ${desktop.view === 'vertical' ? 'h-full w-fit flex-col pb-10' : 'h-fit w-full'}`}
-            >
-              {destopFolders
-                .slice()
-                .sort((a, b) => {
-                  if (desktop.sort === 'name') {
-                    const name1 = a.name.toLowerCase()
-                    const name2 = b.name.toLowerCase()
-                    if (name1 < name2) return -1
-                    else if (name1 > name2) return 1
-                    return 0
-                  } else return 0
-                })
-                .map((folder) => (
-                  <Folder
-                    status={folder.status}
-                    onMinimizeRestore={folder.onMinimizeRestore}
-                    id={folder.id}
-                    name={folder.name}
-                    key={folder.name}
-                    type={folder.type}
-                  />
-                ))}
-            </div>
-            {ctxPosition && <ContextMenu position={ctxPosition} />}
-            {frames.map((frame) => {
-              if (frame.type === 'browser') {
-                return (
-                  <BrowserFrame
-                    key={frame.id}
-                    frame_id={frame.id}
-                    status={frame.status}
-                    frameName={frame.name}
-                  />
-                )
-              }
-              if (frame.type === 'calculator') {
-                return (
-                  <CalculatorFrame
-                    key={frame.id}
-                    frame_id={frame.id}
-                    status={frame.status}
-                    frameName={frame.name}
-                  />
-                )
-              }
+            {destopFolders
+              .slice()
+              .sort((a, b) => {
+                if (desktop.sort === 'name') {
+                  const name1 = a.name.toLowerCase()
+                  const name2 = b.name.toLowerCase()
+                  if (name1 < name2) return -1
+                  else if (name1 > name2) return 1
+                  return 0
+                } else return 0
+              })
+              .map((folder) => (
+                <Folder
+                  status={folder.status}
+                  onMinimizeRestore={folder.onMinimizeRestore}
+                  id={folder.id}
+                  name={folder.name}
+                  key={folder.name}
+                  type={folder.type}
+                />
+              ))}
+          </div>
+          {ctxPosition && !isMobile && <ContextMenu position={ctxPosition} />}
+          {frames.map((frame) => {
+            if (frame.type === 'browser') {
               return (
-                <WindowFrame
-                  enableSidebar={
-                    frame.id === 'skills' ||
-                    frame.id === 'trash' ||
-                    frame.id === 'inotes' ||
-                    frame.id === 'settings' ||
-                    frame.id === 'gallery'
-                  }
+                <BrowserFrame
+                  key={frame.id}
                   frame_id={frame.id}
                   status={frame.status}
                   frameName={frame.name}
-                  key={frame.id}
-                >
-                  {frame.id === 'skills' && <Skill />}
-                  {frame.id === 'trash' && <TrashBin />}
-                  {frame.id === 'inotes' && <INotes />}
-                  {frame.id === 'settings' && <Settings />}
-                  {frame.id === 'gallery' && <Gallery />}
-                  {frame.id === 'terminal' && <Terminal />}
-                  {frame.id === 'projects' && <Projects />}
-                  {frame.id === 'typing-master' && <TypingMaster />}
-                  {frame.id === 'contact' && <Contact />}
-                  {frame.type === 'pdf' && <PDFViewer id={frame.id} />}
-                </WindowFrame>
+                />
               )
-            })}
-          </div>
-        )}
-      {screen === 'desktop' &&
-        screenSize &&
-        (screenSize.w < 900 || screenSize.h < 600) && (
-          <div className="fixed inset-0 z-[9999] flex flex-col items-center justify-center gap-5 bg-black">
-            <h1 className="text-2xl font-medium text-white">
-              Required Screen Size 900 x 600
-            </h1>
-            <h1 className="text-2xl font-medium text-rose-400">
-              Current Screen Size {screenSize.w} x {screenSize.h}
-            </h1>
-          </div>
-        )}
+            }
+            if (frame.type === 'calculator') {
+              return (
+                <CalculatorFrame
+                  key={frame.id}
+                  frame_id={frame.id}
+                  status={frame.status}
+                  frameName={frame.name}
+                />
+              )
+            }
+            return (
+              <WindowFrame
+                enableSidebar={
+                  frame.id === 'skills' ||
+                  frame.id === 'trash' ||
+                  frame.id === 'inotes' ||
+                  frame.id === 'settings' ||
+                  frame.id === 'gallery'
+                }
+                frame_id={frame.id}
+                status={frame.status}
+                frameName={frame.name}
+                key={frame.id}
+              >
+                {frame.id === 'skills' && <Skill />}
+                {frame.id === 'trash' && <TrashBin />}
+                {frame.id === 'inotes' && <INotes />}
+                {frame.id === 'settings' && <Settings />}
+                {frame.id === 'gallery' && <Gallery />}
+                {frame.id === 'terminal' && <Terminal />}
+                {frame.id === 'projects' && <Projects />}
+                {frame.id === 'typing-master' && <TypingMaster />}
+                {frame.id === 'contact' && <Contact />}
+                {frame.type === 'pdf' && <PDFViewer id={frame.id} />}
+              </WindowFrame>
+            )
+          })}
+        </div>
+      )}
     </>
   )
 }
