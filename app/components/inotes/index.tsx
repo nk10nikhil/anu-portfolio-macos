@@ -47,7 +47,7 @@ export function INotes() {
     dispatch(
       addNewNote({
         id,
-        content: 'Hurray! This is my new note',
+        content: 'Hurray! This will be added to Anupriya\'s new note',
         updatedAt: new Date().toISOString(),
       })
     )
@@ -96,7 +96,7 @@ export function INotes() {
             <span>Write a new note</span>
           </button>
         </div>
-        <h3 className="text-sm font-medium text-[#9a9a9a]">On your iCloud</h3>
+        <h3 className="text-sm font-medium text-[#9a9a9a]">On Anupriya's iCloud</h3>
         <div className="mt-2 space-y-2">
           {inotes.map((note) => (
             <button
@@ -140,10 +140,11 @@ export function INotes() {
               <button
                 onClick={onDelete.bind(null, activeNote.id)}
                 type="button"
+                title='delete'
               >
                 <FaRegTrashCan />
               </button>
-              <button onClick={onEdit} type="button">
+              <button onClick={onEdit} type="button" title="edit">
                 <FiEdit />
               </button>
             </div>

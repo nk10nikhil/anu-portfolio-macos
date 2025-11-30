@@ -25,12 +25,12 @@ export function Contact() {
           src={'/assets/images/author.jpg'}
         />
         <h1 className="absolute bottom-5 left-40 text-4xl font-medium text-dark-text">
-          Saffaullah Shuvo
+          Anupriya
         </h1>
       </div>
       <div className="mt-20 flex items-center justify-center gap-8 font-medium">
         <Link
-          href={'https://www.linkedin.com/in/sshuvoo/'}
+          href={'https://www.linkedin.com/in/anupriyasaini21/'}
           target="_blank"
           className="flex gap-2 rounded bg-black/5 px-3 py-1 text-sky-500 dark:bg-white/10"
         >
@@ -38,7 +38,7 @@ export function Contact() {
           <span>Linkedin</span>
         </Link>
         <Link
-          href={'https://github.com/sshuvoo'}
+          href={'https://github.com/anupriyasaini21'}
           target="_blank"
           className="flex gap-2 rounded bg-black/5 px-3 py-1 dark:bg-white/10"
         >
@@ -46,7 +46,7 @@ export function Contact() {
           <span>Github</span>
         </Link>
         <Link
-          href={'https://leetcode.com/u/sshuvoo/'}
+          href={'https://leetcode.com/u/anupriyasaini21/'}
           target="_blank"
           className="flex gap-2 rounded bg-black/5 px-3 py-1 text-[#FFA116] dark:bg-white/10"
         >
@@ -54,7 +54,7 @@ export function Contact() {
           <span>LeetCode</span>
         </Link>
         <Link
-          href="mailto:safayanshuvo@gmail.com"
+          href="mailto:anupriyasaini2110@gmail.com"
           className="flex gap-2 rounded bg-black/5 px-3 py-1 text-[#EB493B] dark:bg-white/10"
         >
           <IconBrandGmail />
@@ -73,22 +73,20 @@ export function Contact() {
           />
         </div>
         <p className="mb-4">
-          Hey there! I’m Saffaullah Shuvo, a web developer from Sherpur,
-          Bangladesh, who genuinely enjoys coding and problem-solving.
-          Completing my graduation in Applied Mathematics from the University of
-          Rajshahi actually inspired me to deep dive into the programming world.
-          I’m a problem-solving enthusiast with a strong passion for data
-          structures and algorithms, always eager to take on challenges and find
-          efficient solutions. For me, coding isn’t a job—it’s something I truly
-          love doing, and it’s exciting to learn and adapt to new technologies
-          along the way.
+          Hello! I'm Anupriya Saini, a passionate software developer with a
+          strong foundation in computer science and a keen interest in building
+          innovative solutions. I hold a Bachelor's degree in Computer Science
+          and Engineering from Galgotia College of Engineering and Technology, where I honed my skills in
+          programming, data structures, and algorithms.
         </p>
-        <p>
-          Beyond the screen, you’ll find me enjoying life’s simple pleasures. I
-          love to travel, try out different foods, go swimming, hike in nature,
-          and occasionally get lost in a good book. And yes, in case you were
-          wondering, I’m still flying solo—no girlfriend yet (but who needs one
-          when you have a love affair with code, right?).
+        <p className="mb-4">
+          Over the years, I've gained hands-on experience in various
+          technologies, including JavaScript, React, Node.js, and Python. I'm
+          particularly enthusiastic about web development and enjoy creating
+          user-friendly applications that solve real-world problems. My journey
+          in the tech world has been driven by a constant desire to learn and
+          grow, and I actively participate in coding challenges on platforms
+          like LeetCode to sharpen my problem-solving skills.
         </p>
       </div>
     </div>

@@ -194,7 +194,7 @@ export default function AppTray() {
         ))}
         <Link
           target="_blank"
-          href="https://github.com/sshuvoo/os-portfolio"
+          href="https://github.com/anupriyasaini21"
           className="group relative flex size-[45px] items-center justify-center rounded-md bg-dark-background"
         >
           <IconBrandGithub stroke={1} className="size-10 text-dark-text" />

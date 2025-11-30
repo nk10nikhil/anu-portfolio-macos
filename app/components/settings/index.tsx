@@ -25,7 +25,7 @@ export function Settings() {
             <Image alt="" src={author} className="size-full rounded-full" />
           </div>
           <div className="flex flex-col justify-center leading-snug">
-            <h2>S Shuvo</h2>
+            <h2>Anupriya</h2>
             <p className="text-xs">Apple Account</p>
           </div>
         </div>
