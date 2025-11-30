@@ -96,7 +96,7 @@ export function INotes() {
             <span>Write a new note</span>
           </button>
         </div>
-        <h3 className="text-sm font-medium text-[#9a9a9a]">On Anupriya's iCloud</h3>
+        <h3 className="text-sm font-medium text-[#9a9a9a]">On Anupriya&apos;s iCloud</h3>
         <div className="mt-2 space-y-2">
           {inotes.map((note) => (
             <button
